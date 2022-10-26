@@ -1,14 +1,26 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import Header from './components/Header';
 import Wrapper from './components/Wrapper';
 import './scss/global.scss'
-
+import './i18next';
+import { useTranslation } from 'react-i18next';
 
 function App() {
+  const { t, i18n } = useTranslation();
+
+  function translate(value: string) {
+    return t(value);
+  }
+  function changeLanguage(language: string) {
+    i18n.changeLanguage(language);
+  }
+
   return (
     <div className="App">
       <Wrapper>
-        <Header />
+        <Suspense fallback={<div>Loading...</div>}>
+          <Header translate={translate} changeLanguage={changeLanguage}/>
+        </Suspense>
       </Wrapper>
     </div>
   );

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useState } from 'react';
-import '../scss/Header.scss'
+import '../scss/Header.scss';
 import HeaderSkills from './UI/HeaderSkills';
 import reactIcon from '../assets/images/reactIcon.svg';
 import jstIcon from '../assets/images/jsIcon.svg';
@@ -8,27 +8,35 @@ import tsIcon from '../assets/images/tsIcon.svg';
 import scrollArrow from '../assets/images/scrollArrow.svg';
 import linkArrow from '../assets/images/linkArrow.svg';
 
-function Header() {
-   const [language, setLanguage] = useState("EN");
+interface Props {
+   translate: (value: string) => string,
+   changeLanguage: (language: string) => void
+}
 
-   function switchLanguage () {
-      if (language === 'EN') {
-         setLanguage('RU');
+function Header(props: Props) {
+   const {translate, changeLanguage} = props
+   const [languageIcon, setLanguageIcon] = useState("RU");
+
+   function switchLanguage() {
+      if (languageIcon === 'EN') {
+         changeLanguage('en');
+         setLanguageIcon('RU');
          return;
       }
-      setLanguage('EN')
+      setLanguageIcon('EN');
+      changeLanguage('ru');
    }
    return (
       <header>
          <div className='highest_bar' >
             <div className="language_switcher" onClick={switchLanguage}>
-               {language}
+               {languageIcon}
             </div>
             <div className="header_links">
                <nav>
-                  <a href="#">ПРОЕКТЫ</a>
-                  <a href="#">НАВЫКИ</a>
-                  <a href="#">КОНТАКТЫ</a>
+                  <a href="#">{translate("PROJECTS")}</a>
+                  <a href="#">{translate("SKILLS")}</a>
+                  <a href="#">{translate("CONTACTS")}</a>
                </nav>
                <a className="github_link" href="https://github.com/DenisVishnevski" target="_blank">
                   <h3>GITHUB</h3>
@@ -38,10 +46,11 @@ function Header() {
          </div>
          <div className="first_screen">
             <article>
-               <h2>/Привет, меня зовут</h2>
-               <h1>Денис Вишневский, фронтенд-разработчик</h1>
+               <h2>/{translate("Hi, my name is")}</h2>
+               <h1>{translate("Denis Vishnevski")},<br />
+                  {translate("I'm a front-end developer")}</h1>
                <div className='first_screen__items'>
-                  <button>Свяжитесь со мной</button>
+                  <button>{translate("Contact with me")}</button>
                   <div className="first_screen__skills">
                      <HeaderSkills icon={reactIcon} alt='React'>React</HeaderSkills>
                      <HeaderSkills icon={jstIcon} alt='React'>JavaScript</HeaderSkills>
