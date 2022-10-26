@@ -1,0 +1,63 @@
+
+$font: "Nunito", sans-serif;
+$whiteColor: #FFFFFF;
+
+@font-face {
+    font-family: "Nunito";
+    font-style: normal;
+    font-weight: 700;
+    src: url('../assets/fonts/Nunito/Bold/Nunito-Bold.ttf') format('ttf'),
+    url('../assets/fonts/Nunito//Bold/Nunito-Bold.woff') format('woff'),
+    url('../assets/fonts/Nunito/Bold/Nunito-Bold.woff2') format('woff2');
+}
+@font-face {
+    font-family: "Nunito";
+    font-style: normal;
+    font-weight: 800;
+    src: url('../assets/fonts/Nunito/ExtraBold/Nunito-ExtraBold.ttf') format('ttf'),
+    url('../assets/fonts/Nunito/ExtraBold/Nunito-ExtraBold.woff') format('woff'),
+    url('../assets/fonts/Nunito/ExtraBold/Nunito-ExtraBold.woff2') format('woff2');
+}
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #2C2C2C;
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper {
+    width: 1216px;
+    color: $whiteColor;
+    font-family: $font;
+    h1 {
+        line-height: 130%;
+        font-weight: 800;
+    } 
+    h2, h3, h4 {
+        line-height: 130%;
+        font-weight: 700;
+    }
+    p {
+        line-height: 150%;
+    }
+    a {
+        color: $whiteColor;
+        text-decoration: none;
+    }
+    button {
+        color: $whiteColor;
+        font-family: $font;
+        cursor: pointer;
+    }
+}
