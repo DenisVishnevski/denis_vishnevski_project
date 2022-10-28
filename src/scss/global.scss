@@ -60,4 +60,13 @@ body {
         font-family: $font;
         cursor: pointer;
     }
+    main {
+        & > * {
+            margin-top: 100px;
+        }
+        h2 {
+            font-size: 48px;
+            margin-bottom: 47px;
+        }
+    }
 }

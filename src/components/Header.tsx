@@ -15,7 +15,7 @@ interface Props {
 
 function Header(props: Props) {
    const {translate, changeLanguage} = props
-   const [languageIcon, setLanguageIcon] = useState("RU");
+   const [languageIcon, setLanguageIcon] = useState<string>("EN");
 
    function switchLanguage() {
       if (languageIcon === 'EN') {

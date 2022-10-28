@@ -4,6 +4,7 @@ import Wrapper from './components/Wrapper';
 import './scss/global.scss'
 import './i18next';
 import { useTranslation } from 'react-i18next';
+import AboutMe from './components/AboutMe';
 
 function App() {
   const { t, i18n } = useTranslation();
@@ -19,7 +20,10 @@ function App() {
     <div className="App">
       <Wrapper>
         <Suspense fallback={<div>Loading...</div>}>
-          <Header translate={translate} changeLanguage={changeLanguage}/>
+          <Header translate={translate} changeLanguage={changeLanguage} />
+          <main>
+            <AboutMe translate={translate}/>
+          </main>
         </Suspense>
       </Wrapper>
     </div>
