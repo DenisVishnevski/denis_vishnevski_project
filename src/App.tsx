@@ -1,10 +1,11 @@
 import React, { Suspense } from 'react';
-import Header from './components/Header';
-import Wrapper from './components/Wrapper';
 import './scss/global.scss'
 import './i18next';
 import { useTranslation } from 'react-i18next';
+import Wrapper from './components/Wrapper';
+import Header from './components/Header';
 import AboutMe from './components/AboutMe';
+import Skills from './components/Skills';
 
 function App() {
   const { t, i18n } = useTranslation();
@@ -23,6 +24,7 @@ function App() {
           <Header translate={translate} changeLanguage={changeLanguage} />
           <main>
             <AboutMe translate={translate}/>
+            <Skills translate={translate}/>
           </main>
         </Suspense>
       </Wrapper>

@@ -1,0 +1,75 @@
+$default_block_color: #3D3D3E;
+$hover_block_color: #705CF1;
+
+%blocks_style {
+    width: 100%;
+    background-color: $default_block_color;
+    border-radius: 20px;
+    transition: all .5s ease-in-out;
+    padding: 30px 30px 30px 30px;
+}
+%point_style {
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    transition: all .5s ease-in-out;
+}
+
+.skill__buttons {
+    display: flex;
+    &>* {
+        margin-right: 30px;
+    }
+
+    margin-bottom: 70px;
+}
+
+.skills__blocks {
+    display: grid;
+    grid-template-columns: repeat(3, 412px);
+    position: relative;
+    transition: all .5s ease-in-out;
+
+    .skill__block {
+        width: 392px;
+        margin-right: 20px;
+        margin-bottom: 20px;
+
+        .title_block {
+            height: 80px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            @extend %blocks_style;
+
+
+            .point {
+                @extend %point_style;
+                .white_point {
+                    @extend %point_style;
+                    opacity: 0;
+                    background-color: #FFFFFF;
+                }
+            }
+        }
+
+        .description_block {
+            min-height: 200px;
+            @extend %blocks_style;
+        }
+
+        &:hover > * {
+            background-color: $hover_block_color;
+            .point {
+               .white_point {
+                opacity: 1;
+               }
+            }
+        }
+    }
+
+    & :last-child {
+        margin: 0;
+    }
+}
