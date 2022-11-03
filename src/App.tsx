@@ -6,6 +6,8 @@ import Wrapper from './components/Wrapper';
 import Header from './components/Header';
 import AboutMe from './components/AboutMe';
 import Skills from './components/Skills';
+import Portfolio from './components/Portfolio';
+import Footer from './components/Footer';
 
 function App() {
   const { t, i18n } = useTranslation();
@@ -25,7 +27,9 @@ function App() {
           <main>
             <AboutMe translate={translate}/>
             <Skills translate={translate}/>
+            <Portfolio translate={translate}/>
           </main>
+          <Footer translate={translate}/>
         </Suspense>
       </Wrapper>
     </div>

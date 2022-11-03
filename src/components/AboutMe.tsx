@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useEffect, useState } from 'react';
+import { aboutMeBlocks } from '../data/aboutMe';
 import '../scss/AboutMe.scss';
 
 function AboutMe(props: { translate: (value: string) => string }) {
@@ -31,7 +32,9 @@ function AboutMe(props: { translate: (value: string) => string }) {
             <h2>{translate("About me")}</h2>
             <div className="about_me__blocks">
                 {blocksOffset.map((offset: number, index: number) => 
-                    <div key={index} style={{ left: offset}}></div>
+                    <div key={index} style={{ left: offset}}>
+                        {translate(aboutMeBlocks[index])}
+                    </div>
                 )}
             </div>
         </article>

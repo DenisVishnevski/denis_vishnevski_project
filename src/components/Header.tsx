@@ -1,12 +1,13 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import '../scss/Header.scss';
 import HeaderSkills from './UI/HeaderSkills';
 import reactIcon from '../assets/images/reactIcon.svg';
 import jstIcon from '../assets/images/jsIcon.svg';
 import tsIcon from '../assets/images/tsIcon.svg';
 import scrollArrow from '../assets/images/scrollArrow.svg';
-import linkArrow from '../assets/images/linkArrow.svg';
+import GithubButton from './UI/GithubButton';
+import i18next from '../i18next';
 
 interface Props {
    translate: (value: string) => string,
@@ -14,9 +15,14 @@ interface Props {
 }
 
 function Header(props: Props) {
-   const {translate, changeLanguage} = props
+   const { translate, changeLanguage } = props
    const [languageIcon, setLanguageIcon] = useState<string>("EN");
 
+   useEffect(() => {
+      if (i18next.language === 'en'){
+         setLanguageIcon('RU');
+      }
+   }, []);
    function switchLanguage() {
       if (languageIcon === 'EN') {
          changeLanguage('en');
@@ -29,19 +35,16 @@ function Header(props: Props) {
    return (
       <header>
          <div className='highest_bar' >
-            <div className="language_switcher" onClick={switchLanguage}>
+            <button className="language_switcher" onClick={switchLanguage}>
                {languageIcon}
-            </div>
+            </button>
             <div className="header_links">
                <nav>
-                  <a href="#">{translate("PROJECTS")}</a>
-                  <a href="#">{translate("SKILLS")}</a>
-                  <a href="#">{translate("CONTACTS")}</a>
+                  <a href="#portfolio">{translate("PROJECTS")}</a>
+                  <a href="#skills">{translate("SKILLS")}</a>
+                  <a href="#contacts">{translate("CONTACTS")}</a>
                </nav>
-               <a className="github_link" href="https://github.com/DenisVishnevski" target="_blank">
-                  <h3>GITHUB</h3>
-                  <img src={linkArrow} alt="Мой GitHub" />
-               </a>
+               <GithubButton />
             </div>
          </div>
          <div className="first_screen">
@@ -50,7 +53,7 @@ function Header(props: Props) {
                <h1>{translate("Denis Vishnevski")},<br />
                   {translate("I'm a front-end developer")}</h1>
                <div className='first_screen__items'>
-                  <button>{translate("Contact with me")}</button>
+                  <a href='#contacts'>{translate("Contact with me")}</a>
                   <div className="first_screen__skills">
                      <HeaderSkills icon={reactIcon} alt='React'>React</HeaderSkills>
                      <HeaderSkills icon={jstIcon} alt='React'>JavaScript</HeaderSkills>

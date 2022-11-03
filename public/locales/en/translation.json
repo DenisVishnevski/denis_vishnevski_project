@@ -6,9 +6,34 @@
     "PROJECTS": "PROJECTS",
     "SKILLS": "SKILLS",
     "CONTACTS": "CONTACTS",
+
     "About me": "About me",
+    "aboutMe_block1": "For 2 years I studied programming myself. I decided that I did not need paid courses and that I could find any information on my own. I spent more than a year learning C# and Unity, but I decided to leave the creation of games as a hobby. I started learning ASP.NET Core, but I realized that I'm much more interested in front-end development.",
+    "aboutMe_block2": "Every day I try to improve my skills, I strive to write well-read and easily maintainable code. I have experience of working in a team: I graduated from a musicalcollege, where I played in different teams from 3 to 50 people. I also worked as a sound engineer for 2 years: I learned how to work with rapidly changing tasks of varying complexity.",
+    "aboutMe_block3": "Now I devote all my free time to writing websites on React, studying all the technologies necessary for this. At my new job, I want to take part in interesting projects, gain experience in commercial development, and thanks to my diligence and enthusiasm quickly become a middle developer.",
+
     "Skills": "Skills",
     "Layouting": "Layouting",
     "Programming": "Programming",
-    "More": "More"
+    "More": "More",
+    "HTML_skill": "I strive to write semantic HTML code and clear class names.",
+    "CSS_skill": "When adapting the site for different devices, if possible, I use functions such as min(), max() and clamp(), which help to get rid of unnecessary media queries.",
+    "SASS_skill": "This site I wrote using SASS, found a lot of advantages using preprocessors instead of css.",
+    "JavaScript_skill": "Used in my projects in practice most of the features of ES6+.",
+    "TypeScript_skill": "Since I was learning C# before, and got used to static typing, I quickly figured out TypeScript and completely switched to it in his projects.",
+    "React_skill": "I strive to create a developer-friendly and easily maintained application architecture.",
+    "Redux_skill": "Used Redux to create ",
+    "Redux_skill_link": "Landing for a photographer",
+    "Redux_slill2": ", so that I don't have to pass the variable through several components.",
+    "Figma_skill": "Can export images, work with layers, styles, the Inspect tab. If necessary I can contribute layout edits.",
+    "C#_skill": "I write hyper-casual games on Unity, can write a simple API with ASP.NET Core.",
+    "ASP.NET_slill": "I have a basic understanding of how the backend works, HTTP requests and REST API.",
+
+
+    "Portfolio": "Portfolio",
+    "Landing for a photographer": "Landing for a photographer",
+    "Personal portfolio website": "Personal portfolio website",
+    "Go to website": "Go to website",
+
+    "Contacts": "Contacts"
 }

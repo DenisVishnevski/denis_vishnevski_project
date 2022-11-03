@@ -59,13 +59,13 @@ function Skills(props: { translate: (value: string) => string }) {
     }
     return (
         <article>
-            <h2>{translate("Skills")}</h2>
+            <h2 id='skills'>{translate("Skills")}</h2>
             <div className="skill__buttons">
                 {buttonsArray.map((button: any, index) =>
                     <RadioButton
                         onChange={switchTab}
                         key={index} translate={translate}
-                        name='slills' id={index} 
+                        name='slills' id={index}
                         isChecked={button.isChecked}>
                         {button.value}
                     </RadioButton>
@@ -81,7 +81,11 @@ function Skills(props: { translate: (value: string) => string }) {
                             </div>
                         </div>
                         <div className="description_block">
-                            <p></p>
+                            <p>
+                                {translate(block.description)}
+                                <a href={block.link}>{translate(block.linkTitle)}</a>
+                                {translate(block.description2)}
+                            </p>
                         </div>
                     </div>
                 )}

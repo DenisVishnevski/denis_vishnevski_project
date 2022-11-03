@@ -30,6 +30,10 @@ $whiteColor: #FFFFFF;
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: #2C2C2C;
     display: flex;
@@ -49,10 +53,11 @@ body {
         font-weight: 700;
     }
     p {
-        line-height: 150%;
+        line-height: 140%;
     }
     a {
         color: $whiteColor;
+        line-height: 130%;
         text-decoration: none;
     }
     button {
@@ -63,10 +68,19 @@ body {
     main {
         & > * {
             margin-top: 100px;
+            &:last-child {
+                margin-top: 80px;
+            }
         }
         h2 {
             font-size: 48px;
-            margin-bottom: 47px;
+            margin-bottom: 50px;
+        }
+    }
+    footer {
+        h2 {
+            font-size: 48px;
+            margin-bottom: 50px;
         }
     }
 }

@@ -7,6 +7,13 @@ $hover_block_color: #705CF1;
     border-radius: 20px;
     transition: all .5s ease-in-out;
     padding: 30px 30px 30px 30px;
+    font-size: 20px;
+    a {
+        color: #5BFEFE;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
 }
 %point_style {
     width: 20px;
@@ -21,7 +28,7 @@ $hover_block_color: #705CF1;
         margin-right: 30px;
     }
 
-    margin-bottom: 70px;
+    margin-bottom: 50px;
 }
 
 .skills__blocks {
