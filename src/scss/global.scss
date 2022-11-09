@@ -1,23 +1,28 @@
-
 $font: "Nunito", sans-serif;
 $whiteColor: #FFFFFF;
+%h2_style {
+    font-size: 48px;
+    margin-bottom: 50px;
+}
 
 @font-face {
     font-family: "Nunito";
     font-style: normal;
     font-weight: 700;
     src: url('../assets/fonts/Nunito/Bold/Nunito-Bold.ttf') format('ttf'),
-    url('../assets/fonts/Nunito//Bold/Nunito-Bold.woff') format('woff'),
-    url('../assets/fonts/Nunito/Bold/Nunito-Bold.woff2') format('woff2');
+        url('../assets/fonts/Nunito//Bold/Nunito-Bold.woff') format('woff'),
+        url('../assets/fonts/Nunito/Bold/Nunito-Bold.woff2') format('woff2');
 }
+
 @font-face {
     font-family: "Nunito";
     font-style: normal;
     font-weight: 800;
     src: url('../assets/fonts/Nunito/ExtraBold/Nunito-ExtraBold.ttf') format('ttf'),
-    url('../assets/fonts/Nunito/ExtraBold/Nunito-ExtraBold.woff') format('woff'),
-    url('../assets/fonts/Nunito/ExtraBold/Nunito-ExtraBold.woff2') format('woff2');
+        url('../assets/fonts/Nunito/ExtraBold/Nunito-ExtraBold.woff') format('woff'),
+        url('../assets/fonts/Nunito/ExtraBold/Nunito-ExtraBold.woff2') format('woff2');
 }
+
 * {
     padding: 0;
     margin: 0;
@@ -36,6 +41,11 @@ html {
 
 body {
     background-color: #2C2C2C;
+}
+
+#root {
+    width: 100%;
+    overflow: hidden;
     display: flex;
     justify-content: center;
 }
@@ -44,43 +54,75 @@ body {
     width: 1216px;
     color: $whiteColor;
     font-family: $font;
+
     h1 {
         line-height: 130%;
         font-weight: 800;
-    } 
-    h2, h3, h4 {
+    }
+
+    h2,
+    h3,
+    h4 {
         line-height: 130%;
         font-weight: 700;
     }
+
     p {
         line-height: 140%;
     }
+
     a {
         color: $whiteColor;
         line-height: 130%;
         text-decoration: none;
     }
+
     button {
         color: $whiteColor;
         font-family: $font;
         cursor: pointer;
     }
-    main {
-        & > * {
-            margin-top: 100px;
-            &:last-child {
-                margin-top: 80px;
-            }
-        }
-        h2 {
-            font-size: 48px;
-            margin-bottom: 50px;
+}
+
+main {
+    &>* {
+        margin-top: 100px;
+
+        &:last-child {
+            margin-top: 80px;
         }
     }
-    footer {
-        h2 {
-            font-size: 48px;
-            margin-bottom: 50px;
+
+    h2 {
+        @extend %h2_style;
+    }
+}
+
+footer {
+    h2 {
+        @extend %h2_style;
+    }
+}
+
+@media screen and (max-width: 1279px) {
+    .wrapper {
+        width: calc(100% - 40px)
+    }
+}
+
+@media screen and (max-width: 767px) {
+    %h2_style {
+        font-size: 32px;
+        margin-bottom: 30px;
+    }
+    main {
+        &>* {
+            margin-top: 80px;
         }
+    }
+}
+@media screen and (max-width: 479px) {
+    %h2_style {
+        font-size: 24px;
     }
 }

@@ -5,7 +5,6 @@ import telegramIcon from '../assets/images/telegramIcon.svg';
 import whatsAppIcon from '../assets/images/whatsAppIcon.svg';
 import emailIcon from '../assets/images/emailIcon.svg';
 import linkArrow from '../assets/images/whiteLinkArrow.svg';
-import GithubButton from './UI/GithubButton';
 
 function Footer(props: { translate: (value: string) => string }) {
     const translate = props.translate;
@@ -18,7 +17,7 @@ function Footer(props: { translate: (value: string) => string }) {
                 <ContactButton icon={emailIcon} title={"Email"} link="mailto:vishnevski001@gmail.com" />
             </div>
             <div className="bottom_block">
-                <div className="footer_licks">
+                <div className="footer_links">
                     <nav>
                         <a href="#portfolio">{translate("PROJECTS")}</a>
                         <a href="#skills">{translate("SKILLS")}</a>

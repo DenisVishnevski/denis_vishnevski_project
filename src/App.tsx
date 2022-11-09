@@ -2,7 +2,6 @@ import React, { Suspense } from 'react';
 import './scss/global.scss'
 import './i18next';
 import { useTranslation } from 'react-i18next';
-import Wrapper from './components/Wrapper';
 import Header from './components/Header';
 import AboutMe from './components/AboutMe';
 import Skills from './components/Skills';
@@ -20,8 +19,7 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <Wrapper>
+    <div className="wrapper">
         <Suspense fallback={<div>Loading...</div>}>
           <Header translate={translate} changeLanguage={changeLanguage} />
           <main>
@@ -31,7 +29,6 @@ function App() {
           </main>
           <Footer translate={translate}/>
         </Suspense>
-      </Wrapper>
     </div>
   );
 }

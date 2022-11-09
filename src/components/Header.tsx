@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import '../scss/Header.scss';
 import HeaderSkills from './UI/HeaderSkills';
 import reactIcon from '../assets/images/reactIcon.svg';
@@ -8,6 +8,8 @@ import tsIcon from '../assets/images/tsIcon.svg';
 import scrollArrow from '../assets/images/scrollArrow.svg';
 import GithubButton from './UI/GithubButton';
 import i18next from '../i18next';
+import HamburgerMenu from './UI/HamburgerMenu';
+import { relative } from 'path';
 
 interface Props {
    translate: (value: string) => string,
@@ -17,9 +19,11 @@ interface Props {
 function Header(props: Props) {
    const { translate, changeLanguage } = props
    const [languageIcon, setLanguageIcon] = useState<string>("EN");
+   const [languageButtonOffset, setLanguageButtonOffset] = useState<number>(0);
+   const [languageButtonTransition, setLanguageButtonTransition] = useState<string>('all 1s ease-in-out');
 
    useEffect(() => {
-      if (i18next.language === 'en'){
+      if (i18next.language === 'en') {
          setLanguageIcon('RU');
       }
    }, []);
@@ -32,19 +36,47 @@ function Header(props: Props) {
       setLanguageIcon('EN');
       changeLanguage('ru');
    }
+   const languageButtonOffsetUpdate = useCallback(
+      () => {
+         setLanguageButtonOffset(window.innerWidth - 145);
+         if (window.innerWidth >= 767) {
+            hamburgerMenuIsAction(false);
+         }
+      },
+      [],
+   );
+   function hamburgerMenuIsAction(isOpen: boolean) {
+      if (isOpen) {
+         window.addEventListener('resize', languageButtonOffsetUpdate);
+         languageButtonOffsetUpdate();
+         setTimeout(() => {
+            setLanguageButtonTransition('none');
+         }, 1000)
+      }
+      else {
+         window.removeEventListener('resize', languageButtonOffsetUpdate);
+         setLanguageButtonTransition('all 1s ease-in-out');
+         setLanguageButtonOffset(0);
+      }
+   }
    return (
       <header>
-         <div className='highest_bar' >
-            <button className="language_switcher" onClick={switchLanguage}>
-               {languageIcon}
-            </button>
+         <div className='highest_bar'>
+            <div className="header_buttons">
+               <HamburgerMenu isAction={hamburgerMenuIsAction} translate={translate}/>
+               <button className="language_switcher" style={{ left: languageButtonOffset, transition: languageButtonTransition }} onClick={switchLanguage}>
+                  {languageIcon}
+               </button>
+            </div>
             <div className="header_links">
                <nav>
                   <a href="#portfolio">{translate("PROJECTS")}</a>
                   <a href="#skills">{translate("SKILLS")}</a>
                   <a href="#contacts">{translate("CONTACTS")}</a>
                </nav>
-               <GithubButton />
+               <div style={{ position: 'relative', left: languageButtonOffset, transition: 'all .7s ease-in-out' }}>
+                  <GithubButton />
+               </div>
             </div>
          </div>
          <div className="first_screen">

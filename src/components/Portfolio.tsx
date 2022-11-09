@@ -35,29 +35,31 @@ function Portfolio(props: { translate: (value: string) => string }) {
         <article>
             <h2 id='portfolio'>{translate("Portfolio")}</h2>
 
-            {portfolioBlocks.map((block: any, index: number) =>
-                <div key={index} className="portfolio_block" style={blocksStyle}>
-                    <div className="portfolio_description">
-                        <div className="portfolio_text">
-                            <h3 id={block.id}>{translate(block.title)}</h3>
-                            <div className='portfolio_technologies'>
-                                {block.technologies.map((technology: any) =>
-                                    <Technologies key={technology.title} title={technology.title} pointColor={technology.titleColor} />
-                                )}
+            <div className="portfolio_container">
+                {portfolioBlocks.map((block: any, index: number) =>
+                    <div key={index} className="portfolio_block" style={blocksStyle}>
+                        <div className="portfolio_description">
+                            <div className="portfolio_text">
+                                <h3 id={block.id}>{translate(block.title)}</h3>
+                                <div className='portfolio_technologies'>
+                                    {block.technologies.map((technology: any) =>
+                                        <Technologies key={technology.title} title={technology.title} pointColor={technology.titleColor} />
+                                    )}
+                                </div>
+                            </div>
+                            <div className="portfolio_buttons">
+                                <GithubButton />
+                                <a href={block.websiteLink} className='portfolio_link' target="_blank">
+                                    {translate("Go to website")}
+                                </a>
                             </div>
                         </div>
-                        <div className="portfolio_buttons">
-                            <GithubButton />
-                            <a href={block.websiteLink} className='portfolio_link' target="_blank">
-                                {translate("Go to website")}
-                            </a>
+                        <div className="portfolio_images">
+                            <img src={block.desktopImage} alt="Andrey Rudenko" />
+                            <img src={block.mobileImage} alt="Andrey Rudenko" />
                         </div>
-                    </div>
-                    <div className="portfolio_images">
-                        <img src={block.desktopImage} alt="Andrey Rudenko" />
-                        <img src={block.mobileImage} alt="Andrey Rudenko" />
-                    </div>
-                </div>)}
+                    </div>)}
+            </div>
         </article>
     );
 }

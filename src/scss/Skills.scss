@@ -6,15 +6,18 @@ $hover_block_color: #705CF1;
     background-color: $default_block_color;
     border-radius: 20px;
     transition: all .5s ease-in-out;
-    padding: 30px 30px 30px 30px;
+    padding: 30px;
     font-size: 20px;
+
     a {
         color: #5BFEFE;
+
         &:hover {
             text-decoration: underline;
         }
     }
 }
+
 %point_style {
     width: 20px;
     height: 20px;
@@ -24,6 +27,7 @@ $hover_block_color: #705CF1;
 
 .skill__buttons {
     display: flex;
+
     &>* {
         margin-right: 30px;
     }
@@ -33,50 +37,96 @@ $hover_block_color: #705CF1;
 
 .skills__blocks {
     display: grid;
-    grid-template-columns: repeat(3, 412px);
+    grid-template-columns: repeat(3, min((100% + 20px) / 3, 412px));
     position: relative;
     transition: all .5s ease-in-out;
 
-    .skill__block {
-        width: 392px;
-        margin-right: 20px;
-        margin-bottom: 20px;
+    & :last-child {
+        margin: 0;
+    }
+}
+.skill__block {
+    width: calc(100% - 20px);
+    margin-right: 20px;
+    margin-bottom: 20px;
 
-        .title_block {
-            height: 80px;
-            margin-bottom: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            @extend %blocks_style;
+    .title_block {
+        height: 80px;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @extend %blocks_style;
 
 
-            .point {
+        .point {
+            @extend %point_style;
+
+            .white_point {
                 @extend %point_style;
-                .white_point {
-                    @extend %point_style;
-                    opacity: 0;
-                    background-color: #FFFFFF;
-                }
-            }
-        }
-
-        .description_block {
-            min-height: 200px;
-            @extend %blocks_style;
-        }
-
-        &:hover > * {
-            background-color: $hover_block_color;
-            .point {
-               .white_point {
-                opacity: 1;
-               }
+                opacity: 0;
+                background-color: #FFFFFF;
             }
         }
     }
 
-    & :last-child {
-        margin: 0;
+    &:hover>* {
+        background-color: $hover_block_color;
+
+        .point {
+            .white_point {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.description_block {
+    min-height: 200px;
+    @extend %blocks_style;
+}
+
+@media screen and (max-width: 1279px) {
+    %blocks_style {
+        padding: 20px;
+        font-size: 17px;
+    }
+}
+
+@media screen and (max-width: 999px) {
+    .description_block {
+        min-height: 255px;
+    }
+}
+@media screen and (max-width: 767px) {
+    .skill__buttons {
+        &>* {
+            margin-right: 20px;
+        }
+    
+        margin-bottom: 30px;
+    }
+    .skills__blocks {
+        display: block;
+    }
+    .skill__block {
+        width: 100%;
+        margin-right: 0px;
+    }
+    .description_block {
+        min-height: 120px;
+    }
+}
+@media screen and (max-width: 479px) {
+    %blocks_style {
+        font-size: 15px;
+    }
+    .skill__buttons {
+        &>* {
+            margin-right: 10px;
+        }
+    }
+    .description_block {
+        min-height: 100px;
     }
 }

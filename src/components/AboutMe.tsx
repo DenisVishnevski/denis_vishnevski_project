@@ -5,14 +5,20 @@ import '../scss/AboutMe.scss';
 
 function AboutMe(props: { translate: (value: string) => string }) {
     const translate = props.translate
-    const [blocksOffset, setBlocksOffset] = useState<number[]>([0, 0, 0]);
+    const [blocksOffset, setBlocksOffset] = useState<any[]>(['0', '0', '0']);
+    const [blocksTransition, setBlocksTransition] = useState<string>('left 1.5s ease-in-out, bottom .3s ease-in-out');
 
-    const blockWidth: number = 420;
-    const blocksOverlapDistance: number = 22;
+    let isBlocksOpened: boolean = false;
+    let blockWidth: number = 34.5;
+    const blocksOverlapDistancePercent: number = 1.8;
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+        window.addEventListener('resize', openBlocks);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('resize', openBlocks);
+        }
     }, []);
     function handleScroll() {
         if (window.scrollY > 300) {
@@ -21,21 +27,41 @@ function AboutMe(props: { translate: (value: string) => string }) {
         }
     }
     function openBlocks() {
-        let newOffsetArray: number[] = [];
+        let newOffsetArray: any[] = [];
         for (let index = 0; index < blocksOffset.length; index++) {
-            newOffsetArray[index] = (blockWidth - blocksOverlapDistance) * index;
+            if (window.innerWidth >= 1000) {
+                newOffsetArray[index] = ((blockWidth - blocksOverlapDistancePercent) * index);
+            }
+            else {
+                newOffsetArray[index] = ((blockWidth - blocksOverlapDistancePercent) * index);
+            }
         }
         setBlocksOffset(newOffsetArray);
+        if (isBlocksOpened === false) {
+            isBlocksOpened = true;
+            setTimeout(() => {
+                setBlocksTransition('bottom .3s ease-in-out');
+            }, 2000)
+        }
     }
     return (
         <article>
             <h2>{translate("About me")}</h2>
             <div className="about_me__blocks">
-                {blocksOffset.map((offset: number, index: number) => 
-                    <div key={index} style={{ left: offset}}>
-                        {translate(aboutMeBlocks[index])}
-                    </div>
-                )}
+                {blocksOffset.map((offset: number, index: number) => {
+                    if (window.innerWidth >= 1000) {
+                        return (
+                            <div key={index} style={{ width: blockWidth + '%', left: offset + '%', transition: blocksTransition }}>
+                                {translate(aboutMeBlocks[index])}
+                            </div>
+                        )
+                    }
+                    return (
+                        <div key={index} style={{width: '100%', transition: 'bottom .3s ease-in-out'}}>
+                            {translate(aboutMeBlocks[index])}
+                        </div>
+                    )
+                })}
             </div>
         </article>
     );
