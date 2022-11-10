@@ -28,7 +28,7 @@ function Footer(props: { translate: (value: string) => string }) {
                         <img src={linkArrow} alt="Мой GitHub" />
                     </a>
                 </div>
-                <h3>Дизайн сайта @sanya_uiux</h3>
+                <h3>Дизайн сайта <a href="https://www.behance.net/11c1d013">@sanya_uiux</a></h3>
             </div>
         </footer>
     );

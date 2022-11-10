@@ -68,7 +68,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    background-color: #2C2C2C;
+    background-color: #212121;
     transition: all .5s ease-in-out;
 
     &> :first-child {
@@ -97,6 +97,7 @@
 
         a {
             display: flex;
+            justify-content: center;
 
             img {
                 width: 50px;

@@ -20,7 +20,6 @@ function Header(props: Props) {
    const { translate, changeLanguage } = props
    const [languageIcon, setLanguageIcon] = useState<string>("EN");
    const [languageButtonOffset, setLanguageButtonOffset] = useState<number>(0);
-   const [languageButtonTransition, setLanguageButtonTransition] = useState<string>('all 1s ease-in-out');
 
    useEffect(() => {
       if (i18next.language === 'en') {
@@ -49,13 +48,9 @@ function Header(props: Props) {
       if (isOpen) {
          window.addEventListener('resize', languageButtonOffsetUpdate);
          languageButtonOffsetUpdate();
-         setTimeout(() => {
-            setLanguageButtonTransition('none');
-         }, 1000)
       }
       else {
          window.removeEventListener('resize', languageButtonOffsetUpdate);
-         setLanguageButtonTransition('all 1s ease-in-out');
          setLanguageButtonOffset(0);
       }
    }
@@ -63,8 +58,8 @@ function Header(props: Props) {
       <header>
          <div className='highest_bar'>
             <div className="header_buttons">
-               <HamburgerMenu isAction={hamburgerMenuIsAction} translate={translate}/>
-               <button className="language_switcher" style={{ left: languageButtonOffset, transition: languageButtonTransition }} onClick={switchLanguage}>
+               <HamburgerMenu isAction={hamburgerMenuIsAction} translate={translate} />
+               <button className="language_switcher" style={{ left: languageButtonOffset }} onClick={switchLanguage}>
                   {languageIcon}
                </button>
             </div>
@@ -75,7 +70,7 @@ function Header(props: Props) {
                   <a href="#contacts">{translate("CONTACTS")}</a>
                </nav>
                <div style={{ position: 'relative', left: languageButtonOffset, transition: 'all .7s ease-in-out' }}>
-                  <GithubButton />
+                  <GithubButton link='https://github.com/DenisVishnevski'/>
                </div>
             </div>
          </div>

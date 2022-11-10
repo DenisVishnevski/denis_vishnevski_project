@@ -1,4 +1,5 @@
 $buttonColor: #FD6584;
+$backgroundColor: #212121;
 
 .highest_bar {
     width: 100%;
@@ -19,6 +20,7 @@ $buttonColor: #FD6584;
         border-radius: 20px;
         color: #2C2C2C;
         cursor: pointer;
+        transition: all 1s ease-in-out;
         z-index: 5;
     }
 }
@@ -101,7 +103,7 @@ $buttonColor: #FD6584;
     position: absolute;
     bottom: 0;
     right: 30px;
-    background-color: #2C2C2C;
+    background-color: $backgroundColor;
     width: 60px;
     height: 170px;
     border-radius: 100px 100px 0 0;
@@ -166,7 +168,7 @@ $buttonColor: #FD6584;
 @media screen and (max-width: 767px) {
     .highest_bar {
         .language_switcher {
-            background-color: #2C2C2C;
+            background-color: $backgroundColor;
             color: #FFFFFF;
             cursor: pointer;
         }

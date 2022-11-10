@@ -7,16 +7,13 @@ import emailIcon from '../../assets/images/emailIcon.svg';
 import ContactButton from './ContactButton';
 
 interface Props {
-    isOpenMenu: boolean
+    isOpenMenu: boolean,
     translate: (value: string) => string,
     onNavClick: () => void
 }
-interface State {
-    droprightMenuHeight: number
-}
 function DroprightMenu(props: Props) {
     const { translate, isOpenMenu, onNavClick } = props
-    const [menuHeight, setMenuHeight] = useState<number>(100);
+    const [menuHeight, setMenuHeight] = useState<number>(.001);
     const [contactsBlocksOffset, setContactsBlocksOffset] = useState<number>(-200);
 
     useEffect(() => {

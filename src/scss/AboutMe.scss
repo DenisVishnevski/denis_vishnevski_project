@@ -21,7 +21,7 @@
     & > :nth-child(even) {
         @extend %blocks;
         background-color: #55ECEC;
-        color: #2C2C2C;
+        color: #212121;
     }
     & > :last-child {
         @extend %blocks;

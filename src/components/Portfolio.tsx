@@ -48,7 +48,7 @@ function Portfolio(props: { translate: (value: string) => string }) {
                                 </div>
                             </div>
                             <div className="portfolio_buttons">
-                                <GithubButton />
+                                <GithubButton link={block.githubLink}/>
                                 <a href={block.websiteLink} className='portfolio_link' target="_blank">
                                     {translate("Go to website")}
                                 </a>
