@@ -105,45 +105,57 @@ $buttonColor: #FD6584;
     justify-content: end;
     align-items: flex-end;
 
-    & :first-child {
+    & > * {
         @extend %images_style;
-        right: 230px;
     }
 
-    & :last-child {
+    & :first-child img {
+        @extend %images_style;
+        right: 230px;
+        bottom: 0;
+    }
+
+    & :last-child img {
         @extend %images_style;
         right: 40px;
+        bottom: 0;
     }
 }
 
 @media screen and (max-width: 1180px) {
     .portfolio_images {
-        & :first-child {
-            position: static;
+        & > * {
             margin-right: 40px;
-        }
 
-        & :last-child {
+        }
+        
+        & > :last-child {
             display: none;
         }
+    }
+
+    %images_style {
+        position: static;
     }
 }
 
 @media screen and (max-width: 999px) {
     .portfolio_container {
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(2, calc((100% + 20px) / 2));
         width: 100%;
 
-        &> :first-child {
+        & > :first-child {
             margin-right: 20px;
         }
     }
 
     .portfolio_block {
         min-height: 450px;
-        width: calc(50% - 10px);
+        width: calc(100% - 20px);
         flex-direction: column-reverse;
         justify-content: flex-end;
+        margin-bottom: 20px;
     }
 
     .portfolio_description {
@@ -166,16 +178,6 @@ $buttonColor: #FD6584;
         }
     }
 
-    .portfolio_images {
-        width: auto;
-        justify-content: center;
-
-        & :first-child {
-            margin-right: 0px;
-            margin-top: 20px;
-        }
-    }
-
     %images_style {
         height: auto;
         width: calc(100% - 40px);
@@ -186,6 +188,21 @@ $buttonColor: #FD6584;
             height: auto;
         }
     }
+
+    .portfolio_images {
+        width: auto;
+        justify-content: center;
+        & > * {
+            margin-right: 0;
+            margin-top: 20px;
+        }
+
+        & > :first-child img {
+            margin-right: 0px;
+            width: 100%;
+        }
+    }
+
 }
 
 @media screen and (max-width: 767px) {
@@ -233,6 +250,21 @@ $buttonColor: #FD6584;
             }
             .portfolio_link {
                 margin: 0;
+            }
+        }
+    }
+    .portfolio_text {
+        margin-bottom: 40px;
+        h3 {
+            font-size: 20px;
+        }
+        .portfolio_technologies {
+            &>* {
+                margin-right: 20px;
+            }
+
+            .technology_block {
+                font-size: 15px;
             }
         }
     }

@@ -8,7 +8,7 @@
     "CONTACTS": "CONTACTS",
 
     "About me": "About me",
-    "aboutMe_block1": "For 2 years I studied programming myself. I decided that I did not need paid courses and that I could find any information on my own. I spent more than a year learning C# and Unity, but I decided to leave the creation of games as a hobby. I started learning ASP.NET Core, but I realized that I'm much more interested in front-end development.",
+    "aboutMe_block1": "Studied programming for 2 years. I searched for all the information on my own, mainly from the documentation. I spent more than a year learning C# and Unity, but I decided to leave the creation of games as a hobby. I started learning ASP.NET Core, but I realized that I'm much more interested in front-end development.",
     "aboutMe_block2": "Every day I try to improve my skills, I strive to write well-read and easily maintainable code. I have experience of working in a team: I graduated from a musicalcollege, where I played in different teams from 3 to 50 people. I also worked as a sound engineer for 2 years: I learned how to work with rapidly changing tasks of varying complexity.",
     "aboutMe_block3": "Now I devote all my free time to writing websites on React, studying all the technologies necessary for this. At my new job, I want to take part in interesting projects, gain experience in commercial development, and thanks to my diligence and enthusiasm quickly become a middle developer.",
 
@@ -31,6 +31,7 @@
 
 
     "Portfolio": "Portfolio",
+    "ToDo list": "To-do list",
     "Landing for a photographer": "Landing for a photographer",
     "Personal portfolio website": "Personal portfolio website",
     "Go to website": "Go to website",

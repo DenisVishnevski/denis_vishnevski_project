@@ -48,15 +48,19 @@ function Portfolio(props: { translate: (value: string) => string }) {
                                 </div>
                             </div>
                             <div className="portfolio_buttons">
-                                <GithubButton link={block.githubLink}/>
+                                <GithubButton link={block.githubLink} />
                                 <a href={block.websiteLink} className='portfolio_link' target="_blank">
                                     {translate("Go to website")}
                                 </a>
                             </div>
                         </div>
                         <div className="portfolio_images">
-                            <img src={block.desktopImage} alt="Andrey Rudenko" />
-                            <img src={block.mobileImage} alt="Andrey Rudenko" />
+                            <a href={block.websiteLink} target="_blank">
+                                <img src={block.desktopImage} alt="Andrey Rudenko" />
+                            </a>
+                            <a href={block.websiteLink} target="_blank">
+                                <img src={block.mobileImage} alt="Andrey Rudenko" />
+                            </a>
                         </div>
                     </div>)}
             </div>

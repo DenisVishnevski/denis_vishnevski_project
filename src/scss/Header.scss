@@ -54,7 +54,7 @@ $backgroundColor: #212121;
     }
 
     h2 {
-        font-size: 18px;
+        font-size: 17px;
         margin-bottom: 30px;
     }
 }
@@ -181,10 +181,10 @@ $backgroundColor: #212121;
     }
     .first_screen {
         height: auto;
-        padding: 120px 15px 20px  15px;
+        padding: 120px 20px 20px  20px;
         h1 {
             width: 100%;
-            font-size: 32px;
+            font-size: 31px;
             margin: 0;
         }
     }
@@ -210,12 +210,16 @@ $backgroundColor: #212121;
 
 @media screen and (max-width: 479px) {
     .first_screen {
-        padding: 100px 8px 20px 7px;
+        padding: 100px 20px 20px 20px;
         h1 {
-            font-size: 24px;
+            font-size: 22px;
         }
     }
     .first_screen__items {
         height: 160px;
+
+        a {
+            height: 54px;
+        }
     }
 }
