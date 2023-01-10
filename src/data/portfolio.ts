@@ -21,7 +21,7 @@ export const portfolioBlocks: object[] = [
         title: 'Landing for a photographer',
         id: 'portfolio',
         technologies: [programmingBlocksArray[2], programmingBlocksArray[3]],
-        websiteLink: 'http://denisvishnevski-001-site1.ftempurl.com/',
+        websiteLink: 'http://andreyrudenko-001-site1.ctempurl.com/',
         githubLink: 'https://github.com/DenisVishnevski/AndreyRudenko',
         desktopImage: andreyRudenkoDesktop,
         mobileImage: andreyRudenkoMobile
